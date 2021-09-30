@@ -9,12 +9,12 @@
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
 package com.example.examplemod;
@@ -50,86 +50,75 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 @Mod(CustomSignsTest.MODID)
 public class CustomSignsTest {
-	public static final String MODID = "custom_signs_test";
+    public static final String MODID = "custom_signs_test";
 
-	public static final WoodType TEST_WOOD_TYPE = WoodType.create(new ResourceLocation(MODID, "test").toString());
+    public static final WoodType TEST_WOOD_TYPE = WoodType.create(new ResourceLocation(MODID, "test").toString());
 
-	private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-	public static final RegistryObject<CustomStandingSignBlock> TEST_STANDING_SIGN = BLOCKS.register("test_sign",
-			() -> new CustomStandingSignBlock(
-					Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD),
-					CustomSignsTest.TEST_WOOD_TYPE));
-	public static final RegistryObject<CustomWallSignBlock> TEST_WALL_SIGN = BLOCKS.register("test_wall_sign",
-			() -> new CustomWallSignBlock(
-					Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD),
-					CustomSignsTest.TEST_WOOD_TYPE));
+    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    public static final RegistryObject<CustomStandingSignBlock> TEST_STANDING_SIGN = BLOCKS.register("test_sign", () -> new CustomStandingSignBlock(Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), CustomSignsTest.TEST_WOOD_TYPE));
+    public static final RegistryObject<CustomWallSignBlock> TEST_WALL_SIGN = BLOCKS.register("test_wall_sign", () -> new CustomWallSignBlock(Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), CustomSignsTest.TEST_WOOD_TYPE));
 
-	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-	public static final RegistryObject<SignItem> TEST_SIGN = ITEMS.register("test_sign",
-			() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_DECORATIONS),
-					TEST_STANDING_SIGN.get(), TEST_WALL_SIGN.get()));
+    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final RegistryObject<SignItem> TEST_SIGN = ITEMS.register("test_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_DECORATIONS), TEST_STANDING_SIGN.get(), TEST_WALL_SIGN.get()));
 
-	private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister
-			.create(ForgeRegistries.BLOCK_ENTITIES, MODID);
-	public static final RegistryObject<BlockEntityType<CustomSignBlockEntity>> CUSTOM_SIGN = BLOCK_ENTITIES
-			.register("custom_sign", () -> BlockEntityType.Builder
-					.of(CustomSignBlockEntity::new, TEST_WALL_SIGN.get(), TEST_STANDING_SIGN.get()).build(null));
+    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, MODID);
+    public static final RegistryObject<BlockEntityType<CustomSignBlockEntity>> CUSTOM_SIGN = BLOCK_ENTITIES.register("custom_sign", () -> BlockEntityType.Builder.of(CustomSignBlockEntity::new, TEST_WALL_SIGN.get(), TEST_STANDING_SIGN.get()).build(null));
 
-	public CustomSignsTest() {
+    public CustomSignsTest() {
 
-		final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		BLOCKS.register(eventBus);
-		ITEMS.register(eventBus);
-		BLOCK_ENTITIES.register(eventBus);
+        final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        BLOCKS.register(eventBus);
+        ITEMS.register(eventBus);
+        BLOCK_ENTITIES.register(eventBus);
 
-		eventBus.addListener(this::clientSetup);
-		eventBus.addListener(this::commonSetup);
+        eventBus.addListener(this::clientSetup);
+        eventBus.addListener(this::commonSetup);
 
-	}
+    }
 
-	private void clientSetup(final FMLClientSetupEvent event) {
-		BlockEntityRenderers.register(CUSTOM_SIGN.get(), SignRenderer::new);
-		event.enqueueWork(() -> {
-			Sheets.addWoodType(TEST_WOOD_TYPE);
-		});
-	}
+    private void clientSetup(final FMLClientSetupEvent event) {
+        BlockEntityRenderers.register(CUSTOM_SIGN.get(), SignRenderer::new);
+        event.enqueueWork(() -> {
+            Sheets.addWoodType(TEST_WOOD_TYPE);
+        });
+    }
 
-	private void commonSetup(final FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> WoodType.register(TEST_WOOD_TYPE));
-	}
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> WoodType.register(TEST_WOOD_TYPE));
+    }
 
-	public static class CustomStandingSignBlock extends StandingSignBlock {
+    public static class CustomStandingSignBlock extends StandingSignBlock {
 
-		public CustomStandingSignBlock(Properties propertiesIn, WoodType woodTypeIn) {
-			super(propertiesIn, woodTypeIn);
-		}
+        public CustomStandingSignBlock(Properties propertiesIn, WoodType woodTypeIn) {
+            super(propertiesIn, woodTypeIn);
+        }
 
-		@Override
-		public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-			return new CustomSignBlockEntity(pos, state);
-		}
-	}
+        @Override
+        public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+            return new CustomSignBlockEntity(pos, state);
+        }
+    }
 
-	public static class CustomWallSignBlock extends WallSignBlock {
+    public static class CustomWallSignBlock extends WallSignBlock {
 
-		public CustomWallSignBlock(Properties propertiesIn, WoodType woodTypeIn) {
-			super(propertiesIn, woodTypeIn);
-		}
+        public CustomWallSignBlock(Properties propertiesIn, WoodType woodTypeIn) {
+            super(propertiesIn, woodTypeIn);
+        }
 
-		@Override
-		public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-			return new CustomSignBlockEntity(pos, state);
-		}
-	}
+        @Override
+        public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+            return new CustomSignBlockEntity(pos, state);
+        }
+    }
 
-	public static class CustomSignBlockEntity extends SignBlockEntity {
-		public CustomSignBlockEntity(BlockPos pos, BlockState state) {
-			super(pos, state);
-		}
+    public static class CustomSignBlockEntity extends SignBlockEntity {
+        public CustomSignBlockEntity(BlockPos pos, BlockState state) {
+            super(pos, state);
+        }
 
-		@Override
-		public BlockEntityType<CustomSignBlockEntity> getType() {
-			return CUSTOM_SIGN.get();
-		}
-	}
+        @Override
+        public BlockEntityType<CustomSignBlockEntity> getType() {
+            return CUSTOM_SIGN.get();
+        }
+    }
 }
