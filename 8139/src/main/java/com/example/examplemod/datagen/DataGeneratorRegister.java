@@ -20,7 +20,7 @@ public class DataGeneratorRegister {
             genServer(generator, existingFileHelper);
         }
         if (event.includeClient()) {
-            genClient(generator,existingFileHelper);
+            genClient(generator, existingFileHelper);
         }
         if (event.includeDev()) {
             genDev(generator, existingFileHelper);

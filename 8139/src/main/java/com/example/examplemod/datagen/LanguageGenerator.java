@@ -17,8 +17,8 @@ public class LanguageGenerator extends LanguageProvider {
         add(Blocks.GREEN_BUTTON.get(), "Green Button");
         add(Blocks.RED_BUTTON.get(), "Red Button");
         add(Blocks.YELLOW_BUTTON.get(), "Yellow Button");
+        add(Blocks.CUSTOM_PRESSURE_PLATE.get(), "Custom Pressure Plate");
+        add(Blocks.CUSTOM_STANDING_SIGN.get(), "Custom Sign");
     }
-
-
 
 }

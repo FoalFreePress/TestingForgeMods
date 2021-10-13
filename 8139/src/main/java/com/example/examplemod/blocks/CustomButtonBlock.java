@@ -1,12 +1,12 @@
-package com.example.examplemod;
+package com.example.examplemod.blocks;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.ButtonBlock;
 
-public class ModButtonBlock extends ButtonBlock {
+public class CustomButtonBlock extends ButtonBlock {
 
-    protected ModButtonBlock(Properties properties) {
+    public CustomButtonBlock(Properties properties) {
         super(false, properties);
     }
 
