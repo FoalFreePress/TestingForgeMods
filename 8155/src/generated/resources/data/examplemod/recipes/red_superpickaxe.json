@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "TPT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "minecraft:red_terracotta"
+    },
+    "P": {
+      "item": "examplemod:red_pickaxe"
+    }
+  },
+  "result": {
+    "item": "examplemod:red_superpickaxe"
+  }
+}
