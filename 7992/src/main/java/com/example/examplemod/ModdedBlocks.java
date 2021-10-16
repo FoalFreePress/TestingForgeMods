@@ -12,9 +12,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModdedBlocks {
 
-    private static final Material WATER_MATERIAL = new Builder(MaterialColor.COLOR_BLUE).liquid().noCollider().nonSolid().build();
-    private static final Material LAVA_MATERIAL = new Builder(MaterialColor.COLOR_RED).liquid().noCollider().nonSolid().build();
-    private static final Material GAS_MATERIAL = new Builder(MaterialColor.COLOR_LIGHT_GRAY).liquid().noCollider().nonSolid().build();
+    private static final Material WATER_MATERIAL = new Builder(MaterialColor.COLOR_BLUE).liquid().noCollider().nonSolid().replaceable().build();
+    private static final Material LAVA_MATERIAL = new Builder(MaterialColor.COLOR_RED).liquid().noCollider().nonSolid().replaceable().build();
+    private static final Material GAS_MATERIAL = new Builder(MaterialColor.COLOR_LIGHT_GRAY).liquid().noCollider().nonSolid().replaceable().build();
 
     private static final Properties SLOW_WATER_PROPERTIES = Properties.of(WATER_MATERIAL).noCollission().strength(1000.0F).noDrops();
     private static final Properties FAST_WATER_PROPERTIES = Properties.of(WATER_MATERIAL).noCollission().strength(100.0F).noDrops();
