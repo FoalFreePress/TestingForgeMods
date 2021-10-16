@@ -1,0 +1,10 @@
+{
+  "item.examplemod.fast_gas_drown_bucket": "Fast Gas Drowning Bucket",
+  "item.examplemod.fast_gas_no_drown_bucket": "Fast Gas No Drowning Bucket",
+  "item.examplemod.fast_lava_bucket": "Fast Lava Bucket",
+  "item.examplemod.fast_water_bucket": "Fast Water Bucket",
+  "item.examplemod.slow_gas_drown_bucket": "Slow Gas Drowning Bucket",
+  "item.examplemod.slow_gas_no_drown_bucket": "Slow Gas No Drowning Bucket",
+  "item.examplemod.slow_lava_bucket": "Slow Lava Bucket",
+  "item.examplemod.slow_water_bucket": "Slow Water Bucket"
+}

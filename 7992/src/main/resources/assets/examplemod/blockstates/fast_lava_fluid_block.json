@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "examplemod:block/fast_lava_fluid" }
+  }
+}

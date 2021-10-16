@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "examplemod:block/fast_gas_no_drown_fluid" }
+  }
+}
