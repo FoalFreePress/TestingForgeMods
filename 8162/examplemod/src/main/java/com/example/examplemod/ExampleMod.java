@@ -12,14 +12,13 @@ public class ExampleMod {
 
     public static final String MODID = "examplemod";
     private static final Logger LOGGER = LogManager.getLogger();
-	private ExampleLibrary library;
+    private ExampleLibrary library;
 
     public ExampleMod() {
         LOGGER.info("Loading mod...");
         library = new ExampleLibrary();
         LOGGER.info("Class of ExampleLibrary " + library.getClass().getName());
         LOGGER.info("Completed Loading!");
-        sun.misc.Unsafe.getUnsafe();
     }
 
 }
