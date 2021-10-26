@@ -21,6 +21,7 @@
 /**/eclipse/
 /**/run/
 /**/.cache/
+/.template/
 
 # Files from Forge MDK
 /**/forge*changelog.txt
